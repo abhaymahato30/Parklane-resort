@@ -1,0 +1,111 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700;800;900&display=swap');
+
+/* ===========================
+   Brand Theme – Light Blue Premium
+=========================== */
+
+:root {
+  /* 🎨 Brand Colors */
+  --primary-blue: #3B82F6;        /* Light premium blue */
+  --primary-blue-soft: #DBEAFE;   /* Very light blue */
+  --primary-orange: #FB923C;      /* Soft premium orange */
+
+  /* 🧱 Backgrounds */
+  --bg-main: #F9FBFF;             /* Page background */
+  --bg-section: #FFFFFF;          /* Cards / sections */
+  --bg-alt: #EFF6FF;              /* Light blue sections */
+
+  /* 🔤 Text */
+  --text-primary: #0F172A;        /* Headings */
+  --text-secondary: #475569;      /* Body */
+  --text-muted: #64748B;          /* Muted text */
+
+  /* ✨ UI */
+  --radius-xl: 16px;
+  --radius-lg: 12px;
+  --shadow-soft: 0 6px 20px rgba(15, 23, 42, 0.08);
+  --shadow-hover: 0 10px 28px rgba(15, 23, 42, 0.12);
+}
+
+/* ===========================
+   Global Styles
+=========================== */
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-main);
+  color: var(--text-secondary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  font-family: 'Nohemi', sans-serif;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+/* Links */
+a {
+  color: var(--primary-blue);
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: var(--primary-orange);
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--primary-orange);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+.btn-primary:hover {
+  background: #F97316;
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-secondary {
+  background: var(--primary-blue);
+  color: #fff;
+  border-radius: var(--radius-lg);
+}
+
+/* Cards */
+.card {
+  background: var(--bg-section);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+}
+.card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 30s linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right 30s linear infinite;
+}

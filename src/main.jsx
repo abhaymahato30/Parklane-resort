@@ -1,0 +1,39 @@
+import { StrictMode, useEffect, useState } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App.jsx";
+import Loader from "./components/common/Loader.jsx";
+
+import { AnimatePresence } from "framer-motion";
+import "./index.css";
+
+function Root() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate initial loading (fonts, images, assets)
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000); // adjust if needed
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <AnimatePresence mode="wait">
+      {loading ? (
+        <Loader />
+      ) : (
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      )}
+    </AnimatePresence>
+  );
+}
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <Root />
+  </StrictMode>
+);
