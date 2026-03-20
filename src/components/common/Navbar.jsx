@@ -53,7 +53,7 @@ export default function Navbar() {
         {/* MENU */}
         <div className="hidden md:flex items-center gap-8 ml-10">
 
-          {["Home","rooms","amenities","events","gallery","contact"].map((item) => (
+          {["home","rooms","amenities","events","gallery","contact"].map((item) => (
             <span
               key={item}
               onClick={() => scrollToSection(item)}

@@ -14,7 +14,7 @@ export default function Home() {
     <div className="bg-bgmain text-textdark">
 
       {/* HERO */}
-      <section id="hero">
+      <section id="home">
         <Hero />
       </section>
 
