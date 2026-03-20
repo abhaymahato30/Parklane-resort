@@ -1,6 +1,6 @@
 import Hero from "../components/home/Hero";
 import CollageScroll from "../components/home/CollageScroll";
-// import EventsSection from "../components/home/EventsSection"; // ✅ ADD THIS
+import EventsSection from "../components/home/Events";
 import WhyChooseUs from "../components/home/WhyChooseUs";
 import RoomsPreview from "../components/home/RoomsPreview";
 import Amenities from "../components/home/Amenities";
@@ -23,10 +23,10 @@ export default function Home() {
         <CollageScroll />
       </section>
 
-      {/* EVENTS
+      {/* EVENTS */}
       <section id="events">
         <EventsSection />
-      </section> */}
+      </section>
 
       {/* WHY CHOOSE US */}
       <section id="why">

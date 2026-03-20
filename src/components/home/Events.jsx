@@ -1,119 +1,134 @@
-// import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-// // IMPORT YOUR EVENT IMAGES
-// import e1 from "../../assets/events/1.webp";
-// import e2 from "../../assets/events/2.webp";
-// import e3 from "../../assets/events/3.webp";
-// import e4 from "../../assets/events/4.webp";
-// import e5 from "../../assets/events/5.webp";
-// import e6 from "../../assets/events/6.webp";
+const events = [
+  {
+    title: "Wedding समारोह",
+    desc: "Grand wedding setup with decoration & catering",
+    image: "/events/wedding.jpeg",
+  },
+  {
+    title: "Farewell Party",
+    desc: "Celebrate your farewell with music & lights",
+    image: "/events/farewell.jpg",
+  },
+  {
+    title: "Fresher Party",
+    desc: "Welcome juniors with DJ & amazing vibe",
+    image: "/events/fresher.jpg",
+  },
+  {
+    title: "Birthday Celebration",
+    desc: "Make birthdays memorable with decoration",
+    image: "/events/birthday.webp",
+  },
+  {
+    title: "Corporate Events",
+    desc: "Meetings & team outings in peaceful space",
+    image: "/events/corporate.jpeg",
+  },
+  {
+    title: "Family Functions",
+    desc: "Perfect for puja, anniversary & gatherings",
+    image: "/events/family.jpeg",
+  },
+];
 
-// export default function EventsSection() {
+function EventsSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
-//   const row1 = [e1, e2, e3, e4, e5, e6];
-//   const row2 = [e6, e5, e4, e3, e2, e1];
+  // AUTO IMAGE CHANGE
+  useEffect(() => {
+    if (isHovered) return;
 
-//   return (
-//     <section className="relative py-32 bg-bgmain overflow-hidden">
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % events.length);
+    }, 2000); // change speed here
 
-//       {/* HEADING */}
-//       <div className="text-center mb-16">
-//         <h2 className="text-white text-3xl sm:text-4xl font-bold font-serif">
-//           Events & Weddings
-//         </h2>
-//       </div>
+    return () => clearInterval(interval);
+  }, [isHovered]);
 
-//       {/* SCROLL AREA */}
-//       <div className="space-y-8">
+  return (
+    <section className="bg-white text-black py-24 px-6">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
-//         {/* ROW 1 */}
-//         <div className="overflow-hidden">
-//           <div className="flex w-max animate-scroll-left gap-6">
-//             {[...row1, ...row1].map((img, i) => (
-//               <img
-//                 key={i}
-//                 src={img}
-//                 alt="event"
-//                 className="
-//                   h-[220px] sm:h-[260px]
-//                   w-[320px] sm:w-[380px]
-//                   object-cover
-//                   rounded-xl
-//                   transition duration-500
-//                   hover:scale-105
-//                 "
-//               />
-//             ))}
-//           </div>
-//         </div>
+        {/* LEFT SIDE */}
+        <div>
+          <h2
+            className="text-4xl sm:text-5xl mb-8"
+            style={{ fontFamily: "'Great Vibes', cursive" }}
+          >
+            Events & Celebrations
+          </h2>
 
-//         {/* ROW 2 */}
-//         <div className="overflow-hidden">
-//           <div className="flex w-max animate-scroll-right gap-6">
-//             {[...row2, ...row2].map((img, i) => (
-//               <img
-//                 key={i}
-//                 src={img}
-//                 alt="event"
-//                 className="
-//                   h-[220px] sm:h-[260px]
-//                   w-[320px] sm:w-[380px]
-//                   object-cover
-//                   rounded-xl
-//                   transition duration-500
-//                   hover:scale-105
-//                 "
-//               />
-//             ))}
-//           </div>
-//         </div>
+          <div className="space-y-6">
+            {events.map((event, index) => (
+              <div
+                key={index}
+                onMouseEnter={() => {
+                  setActiveIndex(index);
+                  setIsHovered(true);
+                }}
+                onMouseLeave={() => setIsHovered(false)}
+                className="cursor-pointer group"
+              >
+                <h3
+                  className={`
+                    text-xl font-semibold transition
+                    ${
+                      activeIndex === index
+                        ? "text-[#AD8B3A]"
+                        : "text-black"
+                    }
+                  `}
+                >
+                  {event.title}
+                </h3>
 
-//       </div>
+                <p className="text-black/60 text-sm mt-1">
+                  {event.desc}
+                </p>
 
-//       {/* ✨ FLOATING CURSIVE TEXT */}
-//       <div className="
-//         absolute inset-0
-//         flex items-center justify-center
-//         pointer-events-none
-//       ">
-//         <h3 className="
-//           text-white text-3xl sm:text-5xl
-//           opacity-90
-//           tracking-wide
-//           font-[cursive]   /* replace with real font */
-//         ">
-//           Plan Your Event
-//         </h3>
-//       </div>
+                {/* underline */}
+                <div
+                  className={`
+                    h-[2px] mt-2 bg-[#AD8B3A] transition-all duration-300
+                    ${activeIndex === index ? "w-16" : "w-0"}
+                  `}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
 
-//       {/* ANIMATION */}
-//       <style>
-//         {`
-//           @keyframes scroll-left {
-//             0% { transform: translateX(0); }
-//             100% { transform: translateX(-50%); }
-//           }
+        {/* RIGHT SIDE */}
+        <div className="relative h-[400px] w-full overflow-hidden rounded-2xl">
 
-//           @keyframes scroll-right {
-//             0% { transform: translateX(-50%); }
-//             100% { transform: translateX(0); }
-//           }
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={activeIndex}
+              src={events[activeIndex].image}
+              alt={events[activeIndex].title}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{
+                WebkitMaskImage:
+                  "radial-gradient(circle at center, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)",
+                maskImage:
+                  "radial-gradient(circle at center, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)",
+              }}
+            />
+          </AnimatePresence>
 
-//           .animate-scroll-left {
-//             animation: scroll-left 30s linear infinite;
-//           }
+        </div>
 
-//           .animate-scroll-right {
-//             animation: scroll-right 30s linear infinite;
-//           }
+      </div>
+    </section>
+  );
+}
 
-//           .animate-scroll-left:hover,
-//           .animate-scroll-right:hover {
-//             animation-play-state: paused;
-//           }
-//         `}
-//       </style>
-
-//     </section>
-//   );
-// }
+export default EventsSection;

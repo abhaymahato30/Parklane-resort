@@ -57,7 +57,7 @@ export default function RoomsPreview() {
             Our Rooms & Stays
           </h2>
 
-          <p className="mt-4 text-white/80">
+          <p className="mt-4 text-black/80">
             Choose from a range of thoughtfully designed rooms for comfort, luxury, and relaxation.
           </p>
         </motion.div>
