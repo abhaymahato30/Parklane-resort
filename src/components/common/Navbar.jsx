@@ -39,10 +39,10 @@ export default function Navbar() {
         ${scrolled ? "bg-white shadow-md" : "bg-transparent"}
       `}
     >
-      <nav className="max-w-[1200px] mx-auto px-6 py-0.5 flex items-center">
+      <nav className="max-w-[1200px] mx-auto px-6 py-1 flex items-center">
 
         {/* LOGO */}
-        <div onClick={() => scrollToSection("hero")} className="cursor-pointer">
+        <div onClick={() => scrollToSection("home")} className="cursor-pointer">
           <img
             src={logo}
             alt="logo"
@@ -50,7 +50,7 @@ export default function Navbar() {
           />
         </div>
 
-        {/* MENU */}
+        {/* DESKTOP MENU */}
         <div className="hidden md:flex items-center gap-8 ml-10">
 
           {["home","rooms","amenities","events","gallery","contact"].map((item) => (
@@ -72,17 +72,15 @@ export default function Navbar() {
 
         </div>
 
-        {/* CTA BUTTONS */}
+        {/* DESKTOP CTA */}
         <div className="hidden md:flex items-center gap-3 ml-auto">
 
           <button
             onClick={callNow}
             className={`
               flex items-center gap-2
-              px-4 py-2  text-sm font-medium 
-               hover:shadow-black hover:text-black
-                  transition
-                  cursor-pointer
+              px-4 py-2 text-sm font-medium
+              transition
               ${
                 scrolled
                   ? "bg-[#AD8B3A] text-white"
@@ -98,10 +96,8 @@ export default function Navbar() {
             onClick={whatsappNow}
             className={`
               flex items-center gap-2
-              px-4 py-2  text-sm font-medium 
-                 hover:bg-green-500 hover:border-green-500
-                  transition
-                  cursor-pointer
+              px-4 py-2 text-sm font-medium
+              transition
               ${
                 scrolled
                   ? "bg-[#AD8B3A] text-white"
@@ -115,11 +111,11 @@ export default function Navbar() {
 
         </div>
 
-        {/* MOBILE MENU */}
+        {/* MOBILE MENU BUTTON */}
         <button
           onClick={() => setOpen(!open)}
           className={`
-            md:hidden ml-auto text-2xl
+            md:hidden ml-auto text-2xl transition
             ${scrolled ? "text-black" : "text-white"}
           `}
         >
@@ -129,8 +125,15 @@ export default function Navbar() {
 
       {/* MOBILE DROPDOWN */}
       {open && (
-        <div className={`${scrolled ? "bg-white" : "bg-black"} px-6 pb-6`}>
-          <div className="flex flex-col gap-4 pt-4">
+        <div
+          className={`
+            ${scrolled ? "bg-white" : "bg-transparent"}
+            backdrop-blur-md
+            px-6 pb-6
+            transition-all duration-500
+          `}
+        >
+          <div className="flex flex-col items-center gap-5 pt-6">
 
             {["home","rooms","amenities","events","gallery","contact"].map((item) => (
               <span
@@ -140,8 +143,12 @@ export default function Navbar() {
                   setOpen(false);
                 }}
                 className={`
-                  text-sm cursor-pointer
-                  ${scrolled ? "text-black" : "text-white"}
+                  text-base font-medium cursor-pointer transition
+                  ${
+                    scrolled
+                      ? "text-black hover:text-[#AD8B3A]"
+                      : "text-white hover:text-[#AD8B3A]"
+                  }
                 `}
               >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
