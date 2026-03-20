@@ -2,139 +2,145 @@ import { Phone, MapPin } from "lucide-react";
 import { FaWhatsapp, FaInstagram, FaFacebook } from "react-icons/fa";
 
 export default function Footer() {
+  const PHONE = "919031821122";
+
   const callNow = () => {
-    window.location.href = "tel:+919525222218";
+    window.location.href = `tel:${PHONE}`;
   };
 
   const whatsappNow = () => {
-    window.open("https://wa.me/919525222218", "_blank");
+    window.open(`https://wa.me/${PHONE}`, "_blank");
   };
 
   return (
-    <footer className="bg-[var(--bg-main)] border-t border-black/5">
-      {/* MAIN CONTAINER */}
-      <div className="max-w-[1200px] mx-auto px-6 py-20">
+    <footer className="bg-black !text-white">
 
-        {/* TOP GRID */}
-        <div className="grid gap-12 md:grid-cols-4 text-center md:text-left">
+      <div className="max-w-7xl mx-auto px-6 py-20">
+
+        {/* GRID */}
+        <div className="grid gap-12 md:grid-cols-3 text-center md:text-left">
 
           {/* BRAND */}
-          <div className="md:col-span-2">
-            <h3 className="font-[Nohemi] text-2xl font-extrabold text-[var(--primary-green)]">
-              Manokamna
-              <span className="text-[var(--primary-orange)]"> Pet World</span>
+          <div>
+            <h3 className="text-2xl font-semibold font-serif !text-white">
+              Parklane Resort
             </h3>
 
-            <p className="mt-4 text-sm text-[var(--text-secondary)] max-w-md leading-relaxed mx-auto md:mx-0">
-              A trusted destination for healthy pets, quality pet food,
-              and responsible pet care. We believe every animal deserves
-              love, care, and a happy home.
+            <p className="mt-4 text-sm text-white leading-relaxed max-w-md mx-auto md:mx-0">
+              A peaceful destination where comfort meets nature.
+              Perfect for stays, celebrations, and unforgettable memories.
             </p>
 
-            {/* SOCIAL ICONS */}
+            {/* SOCIAL */}
             <div className="flex gap-4 mt-6 justify-center md:justify-start">
+              
               <a
-                href="https://www.instagram.com/manokamnapetworld/"
+                href="https://www.instagram.com/parklane_resorts/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-white border border-black/10
-                           text-[var(--text-secondary)]
-                           hover:text-[var(--primary-orange)]
-                           transition"
+                className="p-3 rounded-full border !text-[#AD8B3A] border-white/30 hover:bg-white hover:text-black transition"
               >
-                <FaInstagram size={18} />
+                <FaInstagram size={16} />
               </a>
 
               <a
-                href="https://www.facebook.com/people/Manokamna-Pet-World/61577368480507/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 rounded-full bg-white border border-black/10
-                           text-[var(--text-secondary)]
-                           hover:text-[var(--primary-orange)]
-                           transition"
+                href="#"
+                className="p-3 rounded-full border !text-[#AD8B3A] border-white/30 hover:bg-white hover:text-black transition"
               >
-                <FaFacebook size={18} />
+                <FaFacebook size={16} />
               </a>
+
             </div>
           </div>
 
-          {/* QUICK LINKS */}
+          {/* LINKS */}
           <div>
-            <h4 className="font-[Nohemi] font-semibold text-[var(--text-primary)] mb-4">
-              Quick Links
+            <h4 className="font-semibold mb-4 !text-white">
+              Explore
             </h4>
 
-            <ul className="space-y-3 text-sm text-[var(--text-secondary)]">
-              <li><a href="#pets" className="hover:text-[var(--primary-orange)]">Pets</a></li>
-              <li><a href="#services" className="hover:text-[var(--primary-orange)]">Services</a></li>
-              <li><a href="#reviews" className="hover:text-[var(--primary-orange)]">Reviews</a></li>
-              <li><a href="#contact" className="hover:text-[var(--primary-orange)]">Contact</a></li>
+            <ul className="space-y-3 text-sm text-[#AD8B3A]">
+
+              <li><a href="#hero" className="hover:underline !text-[#AD8B3A]">Home</a></li>
+              <li><a href="#rooms" className="hover:underline !text-[#AD8B3A]">Rooms</a></li>
+              <li><a href="#amenities" className="hover:underline !text-[#AD8B3A]">Amenities</a></li>
+              <li><a href="#events" className="hover:underline !text-[#AD8B3A]">Events</a></li>
+              {/* <li><a href="#gallery" className="hover:underline !text-[#AD8B3A]">Gallery</a></li> */}
+              <li><a href="#contact" className="hover:underline !text-[#AD8B3A]">Contact</a></li>
+
             </ul>
           </div>
 
           {/* CONTACT */}
           <div>
-            <h4 className="font-[Nohemi] font-semibold text-[var(--text-primary)] mb-4">
+            <h3 className="font-semibold mb-4 !text-white">
               Contact
-            </h4>
+            </h3>
 
-            <div className="flex items-center justify-center md:justify-start gap-3 text-sm text-[var(--text-secondary)] mb-3">
+            <div className="flex items-center justify-center md:justify-start gap-3 text-sm text-white mb-3">
               <Phone size={16} />
-              +91 95252 22218
+              +91 90318 21122
             </div>
 
-            <div className="flex items-start justify-center md:justify-start gap-3 text-sm text-[var(--text-secondary)] mb-6">
+            <div className="flex items-start justify-center md:justify-start gap-3 text-sm text-white mb-6">
               <MapPin size={16} className="mt-0.5" />
               <span>
-                Panjar, Sasaram<br />
-                Rohtas, Bihar – 802215
+                Parklane Resort<br />
+                Dhanbad, Jharkhand
               </span>
             </div>
 
-            {/* CTA BUTTONS */}
-            <div className="flex gap-3 justify-center w-full md:w-auto md:justify-start">
+            {/* BUTTONS */}
+            <div className="flex gap-3 justify-center md:justify-start">
+
               <button
                 onClick={callNow}
                 className="
-                  px-4 py-2 text-sm rounded-md font-semibold
-                  bg-[var(--primary-orange)] text-white
-                  hover:scale-[1.03] transition
+                  px-5 py-2 text-sm
+                  border border-white/40
+                      bg-[#AD8B3A] text-white
+               
+                  hover:bg-white hover:text-black
+                  transition
+                  cursor-pointer
                 "
               >
-                Call Now
+                Call
               </button>
 
               <button
                 onClick={whatsappNow}
                 className="
-                  px-4 py-2 text-sm rounded-md font-semibold
-                  bg-green-600 text-white
-                  border border-green-700
-                  hover:bg-green-700
-                  hover:scale-[1.03] transition
+                  px-5 py-2 text-sm
+                  border border-white/40
+                     bg-[#AD8B3A] text-white
+                  hover:bg-green-500 hover:border-green-500
+                  transition
+                  cursor-pointer
                 "
               >
-                <FaWhatsapp className="inline mr-1 text-white" />
+                <FaWhatsapp className="inline mr-1" />
                 WhatsApp
               </button>
+
             </div>
           </div>
         </div>
 
         {/* DIVIDER */}
-        <div className="mt-16 border-t border-black/5" />
+        <div className="mt-16 border-t border-white/20" />
 
         {/* BOTTOM */}
-        <div className="mt-6 flex flex-col gap-2 md:flex-row md:justify-between items-center text-xs text-[var(--text-secondary)] text-center md:text-left">
+        <div className="mt-6 flex flex-col md:flex-row justify-between items-center text-xs text-white text-center md:text-left gap-2">
           <span>
-            © {new Date().getFullYear()} Manokamna Pet World. All rights reserved.
+            © {new Date().getFullYear()} Parklane Resort. All rights reserved.
           </span>
 
           <span>
-            Designed with ❤️ for pet lovers
+            Designed for comfort & luxury stays
           </span>
         </div>
+
       </div>
     </footer>
   );

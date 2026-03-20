@@ -1,16 +1,59 @@
 import { motion } from "framer-motion";
 import {
-  Wifi,
   Utensils,
-  ParkingCircle,
-  Flame,
-  Trees,
+  Coffee,
+  Bed,
   Waves,
+  HeartHandshake,
+  Building2,
+  Briefcase,
 } from "lucide-react";
 
 export default function Amenities() {
+
+  const amenities = [
+    {
+      icon: Waves,
+      title: "Swimming Pool",
+      desc: "Relax and refresh in our clean and spacious pool."
+    },
+    {
+      icon: Utensils,
+      title: "Restaurant",
+      desc: "Enjoy delicious meals with quality ingredients."
+    },
+    {
+      icon: Coffee,
+      title: "Cafe Lounge",
+      desc: "A perfect place to unwind with drinks and snacks."
+    },
+    {
+      icon: Bed,
+      title: "Luxury Rooms",
+      desc: "Comfortable and well-designed rooms for a peaceful stay."
+    },
+    {
+      icon: HeartHandshake,
+      title: "Weddings & Events",
+      desc: "Celebrate your special moments in a beautiful setting."
+    },
+    {
+      icon: Building2,
+      title: "Banquet Hall",
+      desc: "Spacious hall for parties and gatherings."
+    },
+    {
+      icon: Briefcase,
+      title: "Conference Space",
+      desc: "Professional setup for meetings and corporate events."
+    }
+  ];
+
+  const firstSix = amenities.slice(0, 6);
+  const lastOne = amenities[6];
+
   return (
-    <section id="amenities" className="bg-bgsection py-24">
+    <section id="amenities" className="bg-bgsection py-28">
       <div className="max-w-6xl mx-auto px-6 text-center">
 
         {/* Heading */}
@@ -21,119 +64,71 @@ export default function Amenities() {
           viewport={{ once: true }}
           className="text-textdark text-3xl sm:text-4xl font-bold font-serif"
         >
-          Amenities & Facilities
+          Amenities & Experiences
         </motion.h2>
 
         <p className="mt-4 text-textdark max-w-2xl mx-auto opacity-80">
-          Everything you need for a comfortable, relaxing, and memorable stay.
+          Enjoy a complete resort experience with dining, events, and luxury stays.
         </p>
 
-        {/* Amenities Grid */}
-        <div className="mt-14 grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+        {/* GRID */}
+        <div className="mt-16 space-y-10">
 
-          {/* Amenity 1 */}
-          <motion.div
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="bg-bgmain p-8 rounded-2xl"
-          >
-            <Waves className="mx-auto text-accent" size={36} />
-            <h3 className="mt-4 text-lg font-semibold text-textdark">
-              Swimming Pool
-            </h3>
-            <p className="mt-2 text-sm text-textdark opacity-80">
-              Clean and spacious pool for relaxation and family enjoyment.
-            </p>
-          </motion.div>
+          {/* FIRST GRID (6 items) */}
+          <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+            {firstSix.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.05 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -6 }}
+                  className="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-xl transition"
+                >
+                  <Icon className="mx-auto text-black" size={36} />
+                  <h3 className="mt-5 text-lg font-semibold text-black">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-gray-600">
+                    {item.desc}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
 
-          {/* Amenity 2 */}
-          <motion.div
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.5, delay: 0.05 }}
-            viewport={{ once: true }}
-            className="bg-bgmain p-8 rounded-2xl"
-          >
-            <Utensils className="mx-auto text-accent" size={36} />
-            <h3 className="mt-4 text-lg font-semibold text-textdark">
-              In-house Dining
-            </h3>
-            <p className="mt-2 text-sm text-textdark opacity-80">
-              Delicious meals prepared with hygiene and quality ingredients.
-            </p>
-          </motion.div>
-
-          {/* Amenity 3 */}
-          <motion.div
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="bg-bgmain p-8 rounded-2xl"
-          >
-            <Trees className="mx-auto text-accent" size={36} />
-            <h3 className="mt-4 text-lg font-semibold text-textdark">
-              Lawn & Open Spaces
-            </h3>
-            <p className="mt-2 text-sm text-textdark opacity-80">
-              Open green areas perfect for relaxation and small gatherings.
-            </p>
-          </motion.div>
-
-          {/* Amenity 4 */}
-          <motion.div
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="bg-bgmain p-8 rounded-2xl"
-          >
-            <Flame className="mx-auto text-accent" size={36} />
-            <h3 className="mt-4 text-lg font-semibold text-textdark">
-              Bonfire Evenings
-            </h3>
-            <p className="mt-2 text-sm text-textdark opacity-80">
-              Enjoy cozy evenings with a bonfire under the open sky.
-            </p>
-          </motion.div>
-
-          {/* Amenity 5 */}
-          <motion.div
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.5, delay: 0.05 }}
-            viewport={{ once: true }}
-            className="bg-bgmain p-8 rounded-2xl"
-          >
-            <ParkingCircle className="mx-auto text-accent" size={36} />
-            <h3 className="mt-4 text-lg font-semibold text-textdark">
-              Parking Facility
-            </h3>
-            <p className="mt-2 text-sm text-textdark opacity-80">
-              Safe and spacious parking for all guests and visitors.
-            </p>
-          </motion.div>
-
-          {/* Amenity 6 */}
-          <motion.div
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="bg-bgmain p-8 rounded-2xl"
-          >
-            <Wifi className="mx-auto text-accent" size={36} />
-            <h3 className="mt-4 text-lg font-semibold text-textdark">
-              Free Wi-Fi
-            </h3>
-            <p className="mt-2 text-sm text-textdark opacity-80">
-              Stay connected with complimentary high-speed internet.
-            </p>
-          </motion.div>
+          {/* LAST CARD CENTERED */}
+          <div className="flex justify-center">
+            <div className="w-full sm:w-1/2 md:w-1/3">
+              {(() => {
+                const Icon = lastOne.icon;
+                return (
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -6 }}
+                    className="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-xl transition"
+                  >
+                    <Icon className="mx-auto text-black" size={36} />
+                    <h3 className="mt-5 text-lg font-semibold text-black">
+                      {lastOne.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-gray-600">
+                      {lastOne.desc}
+                    </p>
+                  </motion.div>
+                );
+              })()}
+            </div>
+          </div>
 
         </div>
+
       </div>
     </section>
   );

@@ -34,92 +34,66 @@ function Counter({ from = 0, to, suffix = "", duration = 1.5 }) {
   );
 }
 
-export default function PetStats() {
+export default function ResortStats() {
   return (
-    <section className="py-24 bg-[var(--bg-alt)]">
-      <div
-        className="
-          mx-auto
-          max-w-[1000px]
-          px-4 sm:px-6
-          grid
-          grid-cols-1
-          gap-10
-          text-center
-          md:grid-cols-3
-        "
-      >
-        {/* STAT 1 */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="
-            bg-white
-            rounded-2xl
-            py-10
-            shadow-[var(--shadow-soft)]
-          "
-        >
-          <h3 className="text-5xl font-extrabold text-[var(--primary-green)] font-[Nohemi]">
-            <Counter to={300} suffix="+" />
-          </h3>
-          <p className="mt-3 text-sm font-semibold text-[var(--text-primary)]">
-            Trusted Happy Families
-          </p>
-          <p className="mt-1 text-xs text-[var(--text-secondary)]">
-            Pets placed in loving homes
-          </p>
-        </motion.div>
+    <section className="py-28 bg-white">
+      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
 
-        {/* STAT 2 */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="
-            bg-white
-            rounded-2xl
-            py-10
-            shadow-[var(--shadow-soft)]
-          "
-        >
-          <h3 className="text-5xl font-extrabold text-[var(--primary-green)] font-[Nohemi]">
-            <Counter to={5} suffix="+" />
-          </h3>
-          <p className="mt-3 text-sm font-semibold text-[var(--text-primary)]">
-            Years of Pet Care Experience
-          </p>
-          <p className="mt-1 text-xs text-[var(--text-secondary)]">
-            Knowledge built with care & trust
-          </p>
-        </motion.div>
+        {/* CARD */}
+        {[
+          {
+            value: 1500,
+            suffix: "+",
+            title: "Happy Guests",
+            desc: "Families & visitors hosted with care"
+          },
+          {
+            value: 11,
+            suffix: "+",
+            title: "Years of Hospitality",
+            desc: "Experience in hosting memorable stays"
+          },
+          {
+            value: 100,
+            suffix: "%",
+            title: "Guest Satisfaction",
+            desc: "Clean, safe & comfortable stays"
+          }
+        ].map((item, i) => (
 
-        {/* STAT 3 */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="
-            bg-white
-            rounded-2xl
-            py-10
-            shadow-[var(--shadow-soft)]
-          "
-        >
-          <h3 className="text-5xl font-extrabold text-[var(--primary-green)] font-[Nohemi]">
-            <Counter to={100} suffix="%" />
-          </h3>
-          <p className="mt-3 text-sm font-semibold text-[var(--text-primary)]">
-            Health & Hygiene Commitment
-          </p>
-          <p className="mt-1 text-xs text-[var(--text-secondary)]">
-            Clean, safe & responsible care
-          </p>
-        </motion.div>
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            viewport={{ once: true }}
+            className="
+              bg-white
+              rounded-2xl
+              py-12
+              shadow-md
+              border border-gray-100
+              hover:shadow-xl
+              transition
+            "
+          >
+
+            <h3 className="text-5xl font-bold text-black">
+              <Counter to={item.value} suffix={item.suffix} />
+            </h3>
+
+            <p className="mt-3 text-sm font-semibold text-black">
+              {item.title}
+            </p>
+
+            <p className="mt-1 text-xs text-gray-600">
+              {item.desc}
+            </p>
+
+          </motion.div>
+
+        ))}
+
       </div>
     </section>
   );

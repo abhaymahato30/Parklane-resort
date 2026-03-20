@@ -1,5 +1,6 @@
 import Hero from "../components/home/Hero";
 import CollageScroll from "../components/home/CollageScroll";
+// import EventsSection from "../components/home/EventsSection"; // ✅ ADD THIS
 import WhyChooseUs from "../components/home/WhyChooseUs";
 import RoomsPreview from "../components/home/RoomsPreview";
 import Amenities from "../components/home/Amenities";
@@ -11,15 +12,57 @@ import Contact from "../components/home/Contact";
 export default function Home() {
   return (
     <div className="bg-bgmain text-textdark">
-      <Hero />
-      <CollageScroll />
-      <WhyChooseUs />
-      <RoomsPreview />
-      <Amenities />
-      <Reviews />
-      <StatsStrip />
-      <FaqSection />
-      <Contact />
+
+      {/* HERO */}
+      <section id="hero">
+        <Hero />
+      </section>
+
+      {/* GALLERY / SCROLL */}
+      <section id="gallery">
+        <CollageScroll />
+      </section>
+
+      {/* EVENTS
+      <section id="events">
+        <EventsSection />
+      </section> */}
+
+      {/* WHY CHOOSE US */}
+      <section id="why">
+        <WhyChooseUs />
+      </section>
+
+      {/* ROOMS */}
+      <section id="rooms">
+        <RoomsPreview />
+      </section>
+
+      {/* AMENITIES */}
+      <section id="amenities">
+        <Amenities />
+      </section>
+
+      {/* REVIEWS */}
+      <section id="reviews">
+        <Reviews />
+      </section>
+
+      {/* STATS */}
+      <section id="stats">
+        <StatsStrip />
+      </section>
+
+      {/* FAQ */}
+      <section id="faq">
+        <FaqSection />
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact">
+        <Contact />
+      </section>
+
     </div>
   );
 }

@@ -5,45 +5,45 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
-    q: "Are the pets healthy and vaccinated?",
-    a: "Yes. All pets are raised with proper care and hygiene. We provide guidance regarding vaccinations and basic health checks.",
+    q: "What types of rooms are available at Parklane Resort?",
+    a: "We offer comfortable Deluxe Rooms and spacious Family Suites designed for couples, families, and group stays."
   },
   {
-    q: "Can we visit the shop before buying a pet?",
-    a: "Absolutely. We encourage customers to visit our shop, see the pets, and interact with them before making a decision.",
+    q: "What are the check-in and check-out timings?",
+    a: "Check-in is from 12:00 PM and check-out is until 11:00 AM. Early check-in may be available based on room availability."
   },
   {
-    q: "Do you help with food and care guidance?",
-    a: "Yes. We guide you on the right food, feeding schedule, and basic care tips to keep your pet healthy and happy.",
+    q: "Do you allow bookings for events and celebrations?",
+    a: "Yes, we host birthday parties, family gatherings, and small events. You can contact us for customized arrangements."
   },
   {
-    q: "Do you sell pet food and accessories?",
-    a: "Yes. We provide quality pet food, supplements, and essential accessories for dogs and other pets.",
+    q: "Is food available at the resort?",
+    a: "Yes, we provide delicious home-style food. You can also request special arrangements for groups and events."
   },
   {
-    q: "Is after-sale support available?",
-    a: "We are always available for guidance even after you take your pet home, especially for first-time pet owners.",
+    q: "Is parking available at the resort?",
+    a: "Yes, we have ample parking space available for guests visiting the resort."
   },
   {
-    q: "What types of pets are available?",
-    a: "We mainly have a variety of dog breeds along with some small pets commonly kept in Indian households.",
+    q: "Is the resort suitable for families and kids?",
+    a: "Absolutely. Our resort is designed for families with open spaces, peaceful surroundings, and a safe environment."
   },
   {
-    q: "How do I know which pet is right for me?",
-    a: "We help you choose a pet based on your lifestyle, space, and experience level so both you and the pet are happy.",
+    q: "How can I book a room?",
+    a: "You can easily book by calling us or messaging on WhatsApp. Our team will assist you with availability and pricing."
   },
   {
-    q: "Do you provide grooming services?",
-    a: "Yes, we offer grooming and hygiene services to keep your pets clean, healthy, and comfortable.",
-    },
-  {
-    q: "What are your shop timings?",
-    a: "Our shop is open every day from 9:00 AM to 9:00 PM.",
+    q: "Do you provide group booking discounts?",
+    a: "Yes, we offer special pricing for group bookings and longer stays. Please contact us directly for details."
   },
   {
-    q: "How can I contact you?",
-    a: "You can call us directly or message us on WhatsApp for quick responses and availability details.",
+    q: "Are pets allowed at the resort?",
+    a: "Please contact us before booking regarding pets, as policies may vary depending on the type of stay."
   },
+  {
+    q: "Where is Parklane Resort located?",
+    a: "Our resort is located in a peaceful natural setting, perfect for relaxation away from city noise. Exact location details are shared on booking."
+  }
 ];
 
 export default function FAQSection() {
