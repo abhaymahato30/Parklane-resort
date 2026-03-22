@@ -98,6 +98,8 @@ export default function Navbar() {
               flex items-center gap-2
               px-4 py-2 text-sm font-medium
               transition
+               hover:text-white
+                  hover:bg-green-500 hover:border-green-500
               ${
                 scrolled
                   ? "bg-[#AD8B3A] text-white"

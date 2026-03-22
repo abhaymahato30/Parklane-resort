@@ -149,7 +149,8 @@ export default function Hero() {
               font-semibold
               shadow-lg
               hover:scale-105
-              hover:bg-[#c5a14a]
+              hover:text-white
+                  hover:bg-green-500 hover:border-green-500
               transition
             "
           >
