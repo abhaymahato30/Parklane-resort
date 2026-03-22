@@ -116,7 +116,7 @@ export default function Contact() {
 
                   {/* You can add FB later */}
                   <a
-                    href="#"
+                    href="https://www.facebook.com/parklaneresort/"
                     className="
                       p-2 rounded-full
                       border border-gray-200

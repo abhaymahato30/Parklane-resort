@@ -44,7 +44,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="#"
+                href="https://www.facebook.com/parklaneresort/"
                 className="p-3 rounded-full border !text-[#AD8B3A] border-white/30 hover:bg-white hover:text-black transition"
               >
                 <FaFacebook size={16} />
@@ -61,7 +61,7 @@ export default function Footer() {
 
             <ul className="space-y-3 text-sm text-[#AD8B3A]">
 
-              <li><a href="#hero" className="hover:underline !text-[#AD8B3A]">Home</a></li>
+              <li><a href="#home" className="hover:underline !text-[#AD8B3A]">Home</a></li>
               <li><a href="#rooms" className="hover:underline !text-[#AD8B3A]">Rooms</a></li>
               <li><a href="#amenities" className="hover:underline !text-[#AD8B3A]">Amenities</a></li>
               <li><a href="#events" className="hover:underline !text-[#AD8B3A]">Events</a></li>
